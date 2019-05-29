@@ -23,12 +23,29 @@ class App extends Component {
     });
   };
 
+  //Wybór ruchu computera
+  choiceComputer() {
+    const possibleMoves = ['papier', 'kamien', 'nozyczki'];
+    const computerChoice = possibleMoves[Math.floor(Math.random() * 3)];
+
+    this.setState({
+      computerChoice
+    });
+  }
+
+  handleStart = () => {
+    if (!this.state.playerChoice) return alert('Wybierz dlon!');
+    console.log('dziala');
+
+    this.choiceComputer();
+  };
+
   render() {
     return (
       <div className='app'>
         <h1 className='title-game'>Papier, kamień, nożyczki</h1>
         <SelectMove click={this.handleMove} />
-        <StartGame />
+        <StartGame click={this.handleStart} />
         <div className='panels'>
           <PanelLeft />
           <PanelRight />
