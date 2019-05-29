@@ -18,9 +18,12 @@ class App extends Component {
   //Wybór ruchu gracza
   handleMove = (e, move) => {
     const playerChoice = move;
+
     this.setState({
       playerChoice
     });
+
+    this.choiceComputer();
   };
 
   //Wybór ruchu computera
@@ -33,11 +36,29 @@ class App extends Component {
     });
   }
 
+  //Weryfikacja kto wygral
+  checkResult() {
+    const player = this.state.playerChoice;
+    const computer = this.state.computerChoice;
+
+    if (player === computer) {
+      console.log('remis');
+    } else if (
+      (player === 'papier' && computer === 'kamien') ||
+      (player === 'kamien' && computer === 'nozyczki') ||
+      (player === 'nozyczki' && computer === 'papier')
+    ) {
+      console.log('wygrales');
+    } else {
+      console.log('Przegrales');
+    }
+  }
+
+  //Rozpoczęcie gry
   handleStart = () => {
     if (!this.state.playerChoice) return alert('Wybierz dlon!');
-    console.log('dziala');
 
-    this.choiceComputer();
+    this.checkResult();
   };
 
   render() {
