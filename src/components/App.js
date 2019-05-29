@@ -3,7 +3,7 @@ import SelectMove from './SelectMove';
 // import StartGame from './StartGame';
 // import PanelLeft from './PanelLeft';
 // import PanelRight from './PanelRight';
-import '../sass/App.css';
+import '../css/App.css';
 
 class App extends Component {
   render() {

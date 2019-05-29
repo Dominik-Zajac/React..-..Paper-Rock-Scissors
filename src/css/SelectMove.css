@@ -1,0 +1,12 @@
+.select-container {
+    text-align: center;
+}
+
+.select-title {
+    font-size: 3rem;
+}
+
+.select-container img {
+    padding: 1rem;
+    border-radius: 50%;
+}
