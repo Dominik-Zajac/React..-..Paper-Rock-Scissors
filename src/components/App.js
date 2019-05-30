@@ -7,6 +7,7 @@ import '../css/App.css';
 
 class App extends Component {
   state = {
+    score: '',
     numbers: 0,
     wins: 0,
     losses: 0,
@@ -42,15 +43,21 @@ class App extends Component {
     const computer = this.state.computerChoice;
 
     if (player === computer) {
-      console.log('remis');
+      this.setState({
+        score: 'Remis'
+      });
     } else if (
       (player === 'papier' && computer === 'kamien') ||
       (player === 'kamien' && computer === 'nozyczki') ||
       (player === 'nozyczki' && computer === 'papier')
     ) {
-      console.log('wygrales');
+      this.setState({
+        score: 'Wygrałeś'
+      });
     } else {
-      console.log('Przegrales');
+      this.setState({
+        score: 'Przegrałeś'
+      });
     }
   }
 
@@ -68,7 +75,11 @@ class App extends Component {
         <SelectMove click={this.handleMove} />
         <StartGame click={this.handleStart} />
         <div className='panels'>
-          <PanelLeft />
+          <PanelLeft
+            score={this.state.score}
+            playerChoice={this.state.playerChoice}
+            computerChoice={this.state.computerChoice}
+          />
           <PanelRight />
         </div>
       </div>
