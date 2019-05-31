@@ -75,7 +75,16 @@ class App extends Component {
 
   //Rozpoczęcie gry
   handleStart = () => {
-    if (!this.state.playerChoice) return alert('Wybierz dlon!');
+    let roundOfGame = null;
+    roundOfGame = prompt('Wpisz liczbe rund (min:2, max:20):');
+
+    if (roundOfGame >= 2 && roundOfGame <= 20) {
+      console.log('dziala');
+    } else {
+      alert('Proszę wpisać odpowiednią liczbę rund!');
+    }
+
+    // if (!this.state.playerChoice) return alert('Wybierz dlon!');
 
     this.checkResult();
 
