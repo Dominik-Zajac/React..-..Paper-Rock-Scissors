@@ -4,22 +4,19 @@ import React from 'react';
 import '../css/PanelLeft.css';
 
 const PanelLeft = props => {
+  const { playerChoice, score, computerChoice, winOfGame } = props.state;
   return (
     <div className='panel-left'>
       <h4 className='subtitle'>Wyniki gry</h4>
       <p>
-        Twój wybór:{' '}
-        <span className='player-choice choice'>{props.state.playerChoice}</span>
+        Twój wybór: <span className='player-choice choice'>{playerChoice}</span>
       </p>
       <p>
         Wybór komputera:{' '}
-        <span className='computer-choice choice'>
-          {props.state.computerChoice}
-        </span>
+        <span className='computer-choice choice'>{computerChoice}</span>
       </p>
       <p className='score-title'>
-        Wynik:{' '}
-        <span className={props.state.winOfGame}>{props.state.score}</span>
+        Wynik: <span className={winOfGame}>{score}</span>
       </p>
     </div>
   );
