@@ -6,7 +6,7 @@ import '../css/PanelRight.css';
 const PanelRight = props => {
   return (
     <div className='panel-right'>
-      <h3 className='subtitle-left'>Statystyki:</h3>
+      <h3 className='subtitle-right'>Statystyki:</h3>
       <p>
         Liczba gier: <span>{props.numbers}</span>
       </p>
