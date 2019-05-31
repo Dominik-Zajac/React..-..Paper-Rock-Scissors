@@ -16,8 +16,23 @@ class App extends Component {
     computerChoice: '',
     startGame: false,
     roundOfGame: 0,
-    winOfGame: ''
+    winOfGame: '',
+    playerName: ''
   };
+
+  //Wprowadzenie imienia gracza na początku gry
+  componentDidMount() {
+    let playerName = this.state.playerName;
+    playerName = prompt('Wpisz swoje imię(min.3 znaki');
+
+    if (playerName.length < 3) {
+      this.componentDidMount();
+    } else {
+      this.setState({
+        playerName
+      });
+    }
+  }
 
   //Wybór ruchu gracza
   handleMove = (e, move) => {

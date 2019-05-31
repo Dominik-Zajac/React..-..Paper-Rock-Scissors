@@ -18,7 +18,6 @@
 
 .panel-left .choice {
     color: #f39c12;
-    text-transform: capitalize;
 }
 
 .panel-left .win {
@@ -32,4 +31,8 @@
 
 .panel-left .draw {
     color: #f39c12;
+}
+
+.panel-left p {
+    text-transform: capitalize;
 }
