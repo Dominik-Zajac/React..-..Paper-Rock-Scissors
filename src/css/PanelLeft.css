@@ -20,3 +20,16 @@
     color: #f39c12;
     text-transform: capitalize;
 }
+
+.panel-left .win {
+    color: green;
+}
+
+.panel-left .loss {
+    color: #e74c3c;
+
+}
+
+.panel-left .draw {
+    color: #f39c12;
+}

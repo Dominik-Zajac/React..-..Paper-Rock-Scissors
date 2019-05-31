@@ -15,7 +15,8 @@ class App extends Component {
     playerChoice: '',
     computerChoice: '',
     startGame: false,
-    roundOfGame: 0
+    roundOfGame: 0,
+    winOfGame: ''
   };
 
   //Wybór ruchu gracza
@@ -71,7 +72,8 @@ class App extends Component {
 
       this.setState({
         score: 'Remis',
-        draws
+        draws,
+        winOfGame: 'draw'
       });
     } else if (
       (player === 'papier' && computer === 'kamien') ||
@@ -83,7 +85,8 @@ class App extends Component {
 
       this.setState({
         score: 'Wygrałeś',
-        wins
+        wins,
+        winOfGame: 'win'
       });
     } else {
       let losses = this.state.losses;
@@ -91,7 +94,8 @@ class App extends Component {
 
       this.setState({
         score: 'Przegrałeś',
-        losses
+        losses,
+        winOfGame: 'loss'
       });
     }
   }
@@ -121,11 +125,7 @@ class App extends Component {
         <SelectMove click={this.handleMove} />
         <StartGame click={this.handleStart} />
         <div className='panels'>
-          <PanelLeft
-            score={this.state.score}
-            playerChoice={this.state.playerChoice}
-            computerChoice={this.state.computerChoice}
-          />
+          <PanelLeft state={this.state} />
           <PanelRight
             numbers={this.state.numbers}
             wins={this.state.wins}
