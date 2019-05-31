@@ -31,12 +31,25 @@ class App extends Component {
           numbers
         });
 
+        this.checkResult();
+
         this.choiceComputer();
       } else {
-        alert('koniec gry');
+        this.finalScore();
       }
     }
   };
+
+  //Wyświetlenie wyniku końcowego
+  finalScore() {
+    if (this.state.wins === this.state.losses) {
+      alert('Gra zakończona remisem');
+    } else if (this.state.wins < this.state.losses) {
+      alert('Przegrales z komputerem');
+    } else {
+      alert('Wygrales');
+    }
+  }
 
   //Wybór ruchu computera
   choiceComputer() {
@@ -100,10 +113,6 @@ class App extends Component {
     } else {
       alert('Proszę wpisać odpowiednią liczbę rund!');
     }
-
-    // if (!this.state.playerChoice) return alert('Wybierz dlon!');
-
-    this.checkResult();
   };
 
   render() {
