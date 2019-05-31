@@ -8,13 +8,16 @@ const PanelLeft = props => {
     <div className='panel-left'>
       <h4 className='subtitle'>Wyniki gry</h4>
       <p>
-        Twój wybór: <span>{props.playerChoice}</span>
+        Twój wybór:{' '}
+        <span className='player-choice choice'>{props.playerChoice}</span>
       </p>
       <p>
-        Wybór komputera: <span>{props.computerChoice}</span>
+        Wybór komputera:{' '}
+        <span className='computer-choice choice'>{props.computerChoice}</span>
       </p>
-      <h4 className='score-title'>Wynik:</h4>
-      <p>{props.score}</p>
+      <p className='score-title'>
+        Wynik: <span>{props.score}</span>
+      </p>
     </div>
   );
 };

@@ -1,0 +1,22 @@
+.panel-left {
+    width: 20vw;
+    margin: 25px 15px;
+    padding: 20px;
+    border: 3px dotted #353b48;
+    border-radius: 5px;
+    font-size: 25px;
+    color: #353b48;
+    font-weight: bold;
+    text-align: left;
+}
+
+.panel-left .subtitle {
+    font-size: 2rem;
+    color: #f39c12;
+    text-align: center;
+}
+
+.panel-left .choice {
+    color: #f39c12;
+    text-transform: capitalize;
+}
