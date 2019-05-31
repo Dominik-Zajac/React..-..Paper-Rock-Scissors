@@ -43,20 +43,32 @@ class App extends Component {
     const computer = this.state.computerChoice;
 
     if (player === computer) {
+      let draws = this.state.draws;
+      draws++;
+
       this.setState({
-        score: 'Remis'
+        score: 'Remis',
+        draws
       });
     } else if (
       (player === 'papier' && computer === 'kamien') ||
       (player === 'kamien' && computer === 'nozyczki') ||
       (player === 'nozyczki' && computer === 'papier')
     ) {
+      let wins = this.state.wins;
+      wins++;
+
       this.setState({
-        score: 'Wygrałeś'
+        score: 'Wygrałeś',
+        wins
       });
     } else {
+      let losses = this.state.losses;
+      losses++;
+
       this.setState({
-        score: 'Przegrałeś'
+        score: 'Przegrałeś',
+        losses
       });
     }
   }
@@ -66,12 +78,19 @@ class App extends Component {
     if (!this.state.playerChoice) return alert('Wybierz dlon!');
 
     this.checkResult();
+
+    let numbers = this.state.numbers;
+    numbers++;
+
+    this.setState({
+      numbers
+    });
   };
 
   render() {
     return (
       <div className='app'>
-        <h1 className='title-game'>Papier, kamień, nożyczki</h1>
+        <h1 className='title-game'>Papier kamień nożyczki</h1>
         <SelectMove click={this.handleMove} />
         <StartGame click={this.handleStart} />
         <div className='panels'>
@@ -80,7 +99,12 @@ class App extends Component {
             playerChoice={this.state.playerChoice}
             computerChoice={this.state.computerChoice}
           />
-          <PanelRight />
+          <PanelRight
+            numbers={this.state.numbers}
+            wins={this.state.wins}
+            losses={this.state.losses}
+            draws={this.state.draws}
+          />
         </div>
       </div>
     );
