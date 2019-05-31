@@ -13,18 +13,29 @@ class App extends Component {
     losses: 0,
     draws: 0,
     playerChoice: '',
-    computerChoice: ''
+    computerChoice: '',
+    startGame: false,
+    roundOfGame: 0
   };
 
   //Wybór ruchu gracza
   handleMove = (e, move) => {
-    const playerChoice = move;
+    if (this.state.startGame === true) {
+      if (this.state.numbers < this.state.roundOfGame) {
+        const playerChoice = move;
+        let numbers = this.state.numbers;
+        numbers++;
 
-    this.setState({
-      playerChoice
-    });
+        this.setState({
+          playerChoice,
+          numbers
+        });
 
-    this.choiceComputer();
+        this.choiceComputer();
+      } else {
+        alert('koniec gry');
+      }
+    }
   };
 
   //Wybór ruchu computera
@@ -78,8 +89,14 @@ class App extends Component {
     let roundOfGame = null;
     roundOfGame = prompt('Wpisz liczbe rund (min:2, max:20):');
 
+    this.setState({
+      roundOfGame
+    });
+
     if (roundOfGame >= 2 && roundOfGame <= 20) {
-      console.log('dziala');
+      this.setState({
+        startGame: true
+      });
     } else {
       alert('Proszę wpisać odpowiednią liczbę rund!');
     }
@@ -87,13 +104,6 @@ class App extends Component {
     // if (!this.state.playerChoice) return alert('Wybierz dlon!');
 
     this.checkResult();
-
-    let numbers = this.state.numbers;
-    numbers++;
-
-    this.setState({
-      numbers
-    });
   };
 
   render() {
