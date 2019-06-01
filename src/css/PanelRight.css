@@ -16,6 +16,7 @@
     text-align: center;
 }
 
-.panel-right .choice {
+.panel-right .choice,
+.panel-right span {
     color: #f39c12;
 }
