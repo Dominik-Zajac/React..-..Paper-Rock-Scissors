@@ -7,13 +7,33 @@
     outline: none;
     letter-spacing: 1px;
     text-transform: uppercase;
-    background-color: inherit;
-    border: 2px solid #3498db;
+    color: #D6D6D6;
+    background-color: #353b48;
+    border: 2px solid #353b48;
     border-radius: 5px;
-    transition: 0.3s;
+    transition: all 0.3s linear;
+    animation-iteration-count: infinite;
+    animation-duration: 1.5s;
+    animation-name: shrink;
 }
 
 .btn-start:hover {
-    color: #FFF;
-    background-color: #3498db;
+    color: #353b48;
+    background-color: inherit;
+    animation: none;
+}
+
+@keyframes shrink {
+    0% {
+        transform: scaleY(1);
+    }
+
+    49% {
+        transform: scale(0.97, 0.97);
+    }
+
+    100% {
+        transform: scaleY(1);
+    }
+
 }
