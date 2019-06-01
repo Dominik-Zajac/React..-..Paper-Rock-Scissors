@@ -5,7 +5,7 @@ import '../css/StartGame.css';
 
 const StartGame = props => (
   <button className='btn-start' onClick={() => props.click()}>
-    Start
+    {props.startGame ? 'Reset' : 'Start'}
   </button>
 );
 

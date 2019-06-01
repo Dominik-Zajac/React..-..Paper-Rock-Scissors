@@ -117,19 +117,34 @@ class App extends Component {
 
   //Rozpoczęcie gry
   handleStart = () => {
-    let roundOfGame = null;
-    roundOfGame = prompt('Wpisz liczbe rund (min:2, max:20):');
+    if (this.state.startGame === false) {
+      let roundOfGame = null;
+      roundOfGame = prompt('Wpisz liczbe rund (min:2, max:20):');
 
-    this.setState({
-      roundOfGame
-    });
-
-    if (roundOfGame >= 2 && roundOfGame <= 20) {
       this.setState({
-        startGame: true
+        roundOfGame
       });
+
+      if (roundOfGame >= 2 && roundOfGame <= 20) {
+        this.setState({
+          startGame: true
+        });
+      } else {
+        alert('Proszę wpisać odpowiednią liczbę rund!');
+      }
     } else {
-      alert('Proszę wpisać odpowiednią liczbę rund!');
+      this.setState({
+        score: '',
+        numbers: 0,
+        wins: 0,
+        losses: 0,
+        draws: 0,
+        playerChoice: '',
+        computerChoice: '',
+        startGame: false,
+        roundOfGame: 0,
+        winOfGame: ''
+      });
     }
   };
 
@@ -138,7 +153,7 @@ class App extends Component {
       <div className='app'>
         <h1 className='title-game'>Papier kamień nożyczki</h1>
         <SelectMove click={this.handleMove} />
-        <StartGame click={this.handleStart} />
+        <StartGame click={this.handleStart} startGame={this.state.startGame} />
         <div className='panels'>
           <PanelLeft state={this.state} />
           <PanelRight
