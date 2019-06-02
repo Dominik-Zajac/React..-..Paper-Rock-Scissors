@@ -6,7 +6,7 @@
     border-radius: 5px;
     font-size: 25px;
     color: #353b48;
-    font-weight: bold;
+    font-weight: 100;
     text-align: left;
 }
 
@@ -14,10 +14,7 @@
     font-size: 2rem;
     color: #f39c12;
     text-align: center;
-}
-
-.panel-left .choice {
-    color: #f39c12;
+    font-weight: 400;
 }
 
 .panel-left .win {
@@ -29,10 +26,15 @@
 
 }
 
-.panel-left .draw {
+.panel-left .draw,
+.pnale-left .choice {
     color: #f39c12;
 }
 
 .panel-left p {
     text-transform: capitalize;
+}
+
+.panel-left p span {
+    font-weight: 400;
 }

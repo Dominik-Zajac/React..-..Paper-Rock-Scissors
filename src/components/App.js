@@ -133,20 +133,25 @@ class App extends Component {
         alert('Proszę wpisać odpowiednią liczbę rund!');
       }
     } else {
-      this.setState({
-        score: '',
-        numbers: 0,
-        wins: 0,
-        losses: 0,
-        draws: 0,
-        playerChoice: '',
-        computerChoice: '',
-        startGame: false,
-        roundOfGame: 0,
-        winOfGame: ''
-      });
+      this.resetStatisctics();
     }
   };
+
+  //Resetowanie statystyk
+  resetStatisctics() {
+    this.setState({
+      score: '',
+      numbers: 0,
+      wins: 0,
+      losses: 0,
+      draws: 0,
+      playerChoice: '',
+      computerChoice: '',
+      startGame: false,
+      roundOfGame: 0,
+      winOfGame: ''
+    });
+  }
 
   render() {
     return (
