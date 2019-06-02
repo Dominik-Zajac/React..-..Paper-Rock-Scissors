@@ -6,17 +6,18 @@
     border-radius: 5px;
     font-size: 25px;
     color: #353b48;
-    font-weight: bold;
+    font-weight: 100;
     text-align: left;
 }
 
 .panel-right .subtitle-right {
     font-size: 2rem;
+    font-weight: 400;
     color: #f39c12;
     text-align: center;
 }
 
 .panel-right .choice,
 .panel-right span {
-    color: #f39c12;
+    font-weight: 400;
 }
